@@ -4,83 +4,239 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Desafio 01 — Samuel (Timão)</title>
+    <title>Desafio 01 — Samuel (O Paredão)</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
-    <header class="topbar">
+    <audio id="apito-sound" src="https://github.com/rafael-franco/files/raw/main/apito-juiz.mp3" preload="auto"></audio>
+
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <div class="bg-abstract">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <img id="floatingSeal" src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" alt="Selo Corinthians" class="floating-seal">
+
+    <div class="overlay" id="overlay"></div>
+    
+    <aside class="sidebar glass-panel" id="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Menu Tático</span>
+            <button class="close-btn" id="close-btn">&times;</button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#hero">Apito Inicial</a>
+            <a href="#o-jogo">MVP: Hugo Souza</a>
+            <a href="#tatico">Esquema Tático</a>
+            <a href="#estatisticas">Estatísticas</a>
+            <a href="#quiz">Quiz da Fiel</a>
+            <a href="#" id="link-sidebar-security">🛡️ Cibersegurança</a>
+            <a href="#vaquinha">Operação Quita Arena</a>
+            <a href="#regras">Regras e Contato</a>
+            <a href="#resenha">Resenha da Fiel</a>
+        </nav>
+    </aside>
+
+    <header class="topbar glass-panel-top">
         <div class="container topbar-inner">
+            <button class="hamburger-btn" id="hamburger-btn" title="Menu">&#9776;</button>
             <div class="brand">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" alt="Escudo do Corinthians" style="height: 40px; width: auto; margin-right: 10px;">
-                <span class="brand-name">GTI UNIAENE</span>
+                <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" alt="Escudo do Corinthians">
+                <span class="brand-name">FIEL GTI</span>
             </div>
-            <nav class="nav">
-                <a href="#regras">Regras do Jogo</a>
-                <a href="#tarefas">Tática</a>
-                <a href="#contato">Fiel Torcida</a>
+            <nav class="desktop-nav">
+                <a href="#tatico">Tática</a>
+                <a href="#quiz">Quiz</a>
+                <a href="#vaquinha">Vaquinha</a>
             </nav>
+            <button id="theme-toggle" class="theme-btn" title="Trocar Uniforme">⚪</button>
         </div>
     </header>
 
-    <main class="container">
-        <section class="hero">
-            <h1>Desafio 01 — Samuel (Vai Corinthians!)</h1>
-            <p>O objetivo deste desafio é defender o código com a mesma raça que o Timão defende em campo, aplicando HTML, CSS e JavaScript. só pra deixar claro portuguesa é pizza</p>
+    <main class="container page-content">
+        <section class="hero scroll-reveal" id="hero">
+            <div class="hero-badge">Paulistão - Quartas de Final</div>
+            <h1>Fome? Pede Portuguesa!</h1>
+            <p class="hero-desc" id="typewriter-text"></p>
             
             <div class="hero-actions">
-                <button id="btn-alerta" class="btn" type="button">Apito Final</button>
-                <a class="btn btn-ghost" href="https://github.com/uniaene-gti" target="_blank">Repositório do Bando de Loucos</a>
+                <button id="btn-alerta" class="btn btn-primary pulse-glow" type="button">Decretar Fim de Jogo 🔊</button>
+                <a class="btn btn-outline" href="https://github.com/uniaene-gti" target="_blank">Acessar Repositório</a>
             </div>
         </section>
 
-        <section class="card" style="text-align: center;">
-            <img src="https://img.vavel.com/captura-de-tela-2025-12-21-224825-1766368111067.png" alt="Hugo Souza, paredão do Corinthians, garantindo a proteção do sistema" style="border-radius: 8px; max-width: 60%; border: 2px solid white;">
+        <section class="match-report scroll-reveal" id="o-jogo">
+            <div class="match-grid">
+                <div class="match-text glass-panel">
+                    <h2 class="section-title">O Paredão Intransponível</h2>
+                    <p>O Canindé pulsava de tensão. A Portuguesa veio para o tudo ou nada, tentando achar uma brecha no nosso sistema. Mas eles esqueceram de um detalhe: a baliza alvinegra tem dono.</p>
+                    <p><strong>Hugo Souza</strong>, com um tempo de reação absurdo e reflexos de felino, parou o ataque adversário e garantiu a classificação heroica. É com essa mesma segurança que a estrutura deste código foi blindada.</p>
+                </div>
+                <div class="match-image-wrapper tilt-effect">
+                    <img src="https://img.vavel.com/captura-de-tela-2025-12-21-224825-1766368111067.png" alt="Hugo Souza" class="match-img">
+                    <div class="img-badge">Monstro da Partida</div>
+                </div>
+            </div>
         </section>
 
-        <section class="card" id="regras">
-            <h2>Regras do Desafio</h2>
-            <ol class="muted">
-                <li>Proibido commitar na branch <strong>main</strong>.</li>
-                <li>Trabalhe sempre em uma branch própria com seu nome.</li>
-                <li>Entregue as melhorias via Pull Request (PR) para o VAR analisar.</li>
-            </ol>
+        <section class="tactical-board scroll-reveal glass-panel" id="tatico">
+            <h2 class="section-title text-center">Esquema Tático (Arraste os Jogadores)</h2>
+            <div class="pitch" id="pitch">
+                <div class="player p-ataque draggable" draggable="true" id="p1"><span>HTML</span></div>
+                <div class="player p-meio draggable" draggable="true" id="p2"><span>CSS</span></div>
+                <div class="player p-defesa draggable" draggable="true" id="p3"><span>JS</span></div>
+                <div class="player p-goleiro draggable" draggable="true" id="p4"><span>GIT</span></div>
+            </div>
+            <p class="text-center mt-20 muted">Arraste os "jogadores" para mudar o esquema tático da equipa!</p>
         </section>
 
-        <section class="card" id="contato">
-            <h2>Contato</h2>
-            <p>Para dúvidas sobre a escalação, envie um e-mail para: <strong>fiel.gti@uniaene.edu.br</strong></p>
-            
-            <br>
-            <h3>Placar do Desafio</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Desafio</th>
-                        <th>Ponto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ataque: HTML Básico</td>
-                        <td style="text-align: center; font-weight: bold;">1</td>
-                    </tr>
-                    <tr>
-                        <td>Meio-campo: Estilo CSS</td>
-                        <td style="text-align: center; font-weight: bold;">1</td>
-                    </tr>
-                    <tr>
-                        <td>Defesa: Alerta JavaScript</td>
-                        <td style="text-align: center; font-weight: bold;">1</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section class="stats-section scroll-reveal" id="estatisticas">
+            <div class="stat-box glass-panel tilt-effect">
+                <span class="stat-number counter" data-target="4">0</span>
+                <span class="stat-label">Defesas à Queima-Roupa</span>
+            </div>
+            <div class="stat-box glass-panel highlight-stat tilt-effect">
+                <span class="stat-number counter glow-text" data-target="3">0</span>
+                <span class="stat-label">Pênaltis Defendidos</span>
+            </div>
+            <div class="stat-box glass-panel tilt-effect">
+                <span class="stat-number counter" data-target="10">0</span>
+                <span class="stat-label">Nota no Desafio</span>
+            </div>
         </section>
 
-        <footer class="footer">
-            <span class="muted">UNIAENE GTI • Desafio 01 — Aqui é Corinthians!</span>
-        </footer>
+        <section class="quiz-section scroll-reveal glass-panel" id="quiz">
+            <h2 class="section-title text-center">Quiz: Teste o seu Corintianismo</h2>
+            <div id="quiz-container">
+                <h3 id="question-text">Pergunta vai aqui...</h3>
+                <div id="options-container" class="options-grid"></div>
+            </div>
+            <div id="quiz-result" style="display:none;" class="text-center mt-20">
+                <h3 class="text-gold" id="score-text">Resultado: </h3>
+                <button id="btn-restart-quiz" class="btn btn-outline mt-20">Tentar Novamente</button>
+            </div>
+        </section>
+
+        <section class="vaquinha-section scroll-reveal glass-panel" id="vaquinha">
+            <div class="vaquinha-content text-center">
+                <h2 class="section-title">Operação Quita Arena</h2>
+                <p class="mb-20">A Fiel Torcida convoca todos para a vaquinha oficial de quitação do nosso estádio. Faça parte desta história!</p>
+                <div class="fund-progress-container">
+                    <div class="fund-labels">
+                        <span class="bold text-gold">Arrecadado: R$ 52.000.000</span>
+                        <span class="muted">Meta: R$ 700.000.000</span>
+                    </div>
+                    <div class="fund-bar">
+                        <div class="fund-fill" data-width="7.4%"></div>
+                    </div>
+                </div>
+                <button id="btn-abrir-doacao" class="btn btn-gold pulse-glow mt-20">Contribuir Agora</button>
+            </div>
+        </section>
+
+        <div class="split-row">
+            <section class="rules-card glass-panel scroll-reveal" id="regras">
+                <h2 class="section-title">Regras do Desafio</h2>
+                <ol class="custom-list">
+                    <li><div class="icon-box">1</div> Proibido commitar na branch <strong>main</strong>.</li>
+                    <li><div class="icon-box">2</div> Trabalhe sempre numa branch própria com o seu nome.</li>
+                    <li><div class="icon-box">3</div> Entregue via Pull Request (PR).</li>
+                </ol>
+            </section>
+            <section class="contact-card glass-panel scroll-reveal" id="contato">
+                <h2 class="section-title">Contato e Súmula</h2>
+                <p>E-mail da equipa tática: <strong class="highlight">fiel.gti@uniaene.edu.br</strong></p>
+                <h3 class="mt-20 table-title">Súmula de Pontuação</h3>
+                <table class="modern-table">
+                    <thead><tr><th>Desafio</th><th class="text-center">Ponto</th></tr></thead>
+                    <tbody>
+                        <tr><td>Estrutura HTML e CSS Interativo</td><td class="text-center bold">1</td></tr>
+                        <tr><td>Manipulação do DOM (Comentários e Quiz)</td><td class="text-center bold">1</td></tr>
+                        <tr><td>Drag & Drop e Lógica Avançada JS</td><td class="text-center bold">1</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <section class="comments-section scroll-reveal glass-panel" id="resenha">
+            <h2 class="section-title text-center">Resenha da Fiel</h2>
+            <div class="comment-form">
+                <input type="text" id="nome-torcedor" placeholder="Seu nome (ex: Gavião1910)" class="comment-input" maxlength="25">
+                <textarea id="texto-comentario" placeholder="Escreva a sua mensagem para o Timão..." class="comment-textarea" rows="3"></textarea>
+                <button id="btn-comentar" class="btn btn-outline mt-20">Publicar Comentário</button>
+            </div>
+            <div class="comment-list" id="lista-comentarios">
+                <div class="comment-item tilt-effect"><div class="comment-author">Professor GTI</div><div class="comment-text">Trabalho excecional de Front-End, domínios avançados em JS! Nota 10! 👏</div></div>
+            </div>
+        </section>
+
+        <section class="joke-banner scroll-reveal" id="piada">
+            <div class="joke-glass">
+                <h2>Aviso do Departamento de Futebol</h2>
+                <div class="joke-box pulse-glow"><span>PORTUGUESA, PARA MIM, É SABOR DE PIZZA! 🍕</span></div>
+            </div>
+        </section>
     </main>
+
+    <footer class="footer">
+        <div class="footer-glass">
+            <p>UNIAENE GTI • Desenvolvido por Samuel • <strong>VAI CORINTHIANS! 🦅</strong></p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" title="Voltar ao topo">&#8679;</button>
+
+    <div class="modal-overlay" id="modal-vaquinha">
+        <div class="modal-box glass-panel tilt-effect">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <h2 class="text-gold">Faça o seu PIX</h2>
+            <p class="mb-20">Faça o scan do QR Code abaixo com a app do seu banco ou copie a chave PIX para contribuir com a quitação da Arena.</p>
+            <img src="C:\Users\samue\Downloads\WhatsApp Image 2026-02-23 at 15.47.45.jpeg" alt="QR Code PIX" class="qr-code">
+            <div class="pix-copy-container">
+                <input type="text" value="067.449.142.43" id="pix-key" readonly>
+                <button id="btn-copy" class="btn-copy">Copiar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-security">
+        <div class="modal-box large-modal glass-panel tilt-effect">
+            <button class="close-modal" id="close-security">&times;</button>
+            
+            <div class="security-grid">
+                <div class="security-image-wrapper">
+                    <img src="C:\Users\samue\Pictures\Screenshots\Captura de tela 2026-02-23 165326.png" alt="Hugo Souza Segurança" class="security-img">
+                    <div class="security-badge">Defesa 100%</div>
+                </div>
+                <div class="security-text" style="text-align: left;">
+                    <h2 class="section-title" style="font-size: 2.5rem; border: none; color: #00ff88;">Cibersegurança Alvinegra</h2>
+                    <p>Neste site, a proteção dos seus dados é tratada com a mesma seriedade com que o Neneca salta para buscar a bola no ângulo.</p>
+                    <p>O nosso protocolo de segurança garante:</p>
+                    <ul class="security-features mt-20">
+                        <li>🔒 <strong>Criptografia:</strong> Nem o VAR consegue decifrar.</li>
+                        <li>🛡️ <strong>Firewall Neneca:</strong> Bloqueia 100% dos ataques.</li>
+                        <li>🍪 <strong>Cookies:</strong> Só aceitamos se for de pizza portuguesa.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay secret-overlay" id="modal-secret">
+        <div class="modal-box glass-panel secret-box pulse-glow">
+            <button class="close-modal" id="close-secret">&times;</button>
+            <h2 class="secret-title">FACTO COMPROVADO!</h2>
+            <div class="secret-content"><span>🐷🚫🌍</span><p>O PALMEIRAS NÃO TEM MUNDIAL!</p><span>🐷🚫🌍</span></div>
+        </div>
+    </div>
 
     <script src="scripts.js"></script>
 </body>

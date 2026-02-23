@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Desafio 01</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <div class="brand">
+                <span class="brand-mark">GTI</span>
+                <span class="brand-name">UNIAENE</span>
+            </div>
+            <nav class="nav">
+                <a href="#regras">Regras</a>
+                <a href="#tarefas">Tarefas</a>
+                <a href="#entrega">Entrega</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Desafio 01</h1>
+            <p class="subtitle">
+                Uma atividade rápida para praticar HTML, CSS básico e uma pequena interação com JavaScript.
+            </p>
+            <div class="hero-actions">
+                <a class="btn" href="#entrega">Como entregar</a>
+                <button class="btn btn-ghost" type="button">Ver aviso</button>
+            </div>
+        </section>
+
+        <section class="card" id="regras">
+            <h2>Regras</h2>
+
+            <ol class="muted">
+                <li><strong>Proibido commitar na branch <code>main</code>.</strong> Quem commitar na <code>main</code>
+                    será desclassificado.</li>
+                <li>Trabalhe sempre em uma branch própria (ex.: <code>feat/seu-nome</code> ou
+                    <code>aluno/seu-nome</code>).</li>
+                <li>A entrega deve ser feita por <strong>Pull Request</strong> (PR).</li>
+                <li>Cada melhoria concluída vale <strong>1 ponto</strong>.</li>
+                <li>Mantenha suas alterações pequenas e claras. Prefira vários PRs curtos em vez de um PR gigante.</li>
+            </ol>
+
+            <p class="muted" style="margin-top: 10px;">
+                Dica: use mensagens de commit objetivas, por exemplo: <code>feat: ajustar título</code> ou
+                <code>style: melhorar espaçamento</code>.
+            </p>
+        </section>
+
+        <section class="card" id="tarefas">
+            <h2>Tarefas</h2>
+
+            <p class="muted">
+                Complete o máximo de melhorias possível. Cada item concluído e validado no PR soma 1 ponto.
+            </p>
+
+            <ul class="muted" style="margin-top: 10px;">
+                <li>Atualizar textos e estruturas da página usando HTML.</li>
+                <li>Adicionar elementos básicos (lista, link, imagem, tabela) de forma organizada.</li>
+                <li>Fazer um ajuste simples de estilo no CSS (cores, fonte, espaçamento).</li>
+                <li>Implementar uma interação simples com JavaScript (nível iniciante).</li>
+            </ul>
+
+            <p class="muted" style="margin-top: 10px;">
+                Critério: a mudança precisa ser visível e fazer sentido. “Mudanças aleatórias” podem não ser pontuadas.
+            </p>
+        </section>
+
+        <section class="card" id="entrega">
+            <h2>Entrega</h2>
+
+            <ol class="muted">
+                <li>Faça um <strong>fork</strong> do repositório (se estiver usando o fluxo de fork).</li>
+                <li>Crie uma branch própria: <code>git checkout -b feat/seu-nome</code>.</li>
+                <li>Implemente uma ou mais melhorias e faça commits.</li>
+                <li>Envie sua branch: <code>git push -u origin feat/seu-nome</code>.</li>
+                <li>Abra um <strong>Pull Request</strong> descrevendo exatamente o que você fez.</li>
+            </ol>
+
+            <p class="muted" style="margin-top: 10px;">
+                No texto do PR, informe os itens que você concluiu (ex.: “Concluí 3 melhorias: título, lista de regras e
+                tabela de pontos”).
+            </p>
+
+            <p class="muted" style="margin-top: 10px;">
+                Para testar localmente, você pode abrir o <code>index.html</code> no navegador ou usar um servidor local
+                simples.
+            </p>
+        </section>
+
+        <footer class="footer">
+            <span class="muted">UNIAENE GTI • Desafio 01</span>
+        </footer>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

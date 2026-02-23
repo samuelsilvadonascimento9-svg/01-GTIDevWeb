@@ -1,0 +1,140 @@
+:root{
+  --bg: #0b1020;
+  --card: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.10);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+  --accent: #6ee7ff;
+  --radius: 16px;
+}
+
+*{ box-sizing: border-box; }
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1000px 500px at 20% -10%, rgba(110,231,255,.12), transparent 60%), var(--bg);
+  color: var(--text);
+}
+
+.container{
+  width: min(980px, 92vw);
+  margin: 0 auto;
+}
+
+.topbar{
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(11,16,32,.65);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  gap: 12px;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 750;
+}
+
+.brand-mark{
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.06);
+}
+
+.nav{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nav a{
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.nav a:hover{
+  color: var(--text);
+  border-bottom-color: rgba(255,255,255,.25);
+}
+
+.hero{
+  padding: 28px 0 14px;
+}
+
+h1{
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 70ch;
+}
+
+.hero-actions{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card{
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+h2{
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.muted{
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: rgba(255,255,255,.10);
+}
+
+.btn-ghost{
+  background: transparent;
+}
+
+.footer{
+  padding: 18px 0 40px;
+  text-align: center;
+}

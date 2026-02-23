@@ -1,2 +1,5 @@
-// De propósito, este arquivo começa “quieto”.
-// O desafio pede uma alteração simples aqui.
+const botaoAlerta = document.getElementById('btn-alerta');
+
+botaoAlerta.addEventListener('click', function() {
+    alert("Parabéns! Desafio concluído com a proteção do Timão!");
+});
